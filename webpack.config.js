@@ -30,6 +30,11 @@ module.exports = {
          Components: path.resolve(__dirname, "./src/components"),
       },
    },
+   performance: {
+      hints: false,
+      maxAssetSize: 100000,
+      maxEntrypointSize: 200000,
+   },
    devServer: {
       static: {
          directory: path.join(__dirname, "./dist"),
