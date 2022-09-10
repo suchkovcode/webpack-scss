@@ -11,6 +11,9 @@ const isDev = process.env.NODE_ENV !== "production";
 module.exports = {
    target: isDev ? "web" : "browserslist",
    devtool: isDev ? "source-map" : undefined,
+   cache: {
+      type: "filesystem",
+   },
    entry: {
       app: path.resolve(__dirname, "./src/app.js"),
    },
