@@ -9,13 +9,15 @@
    "homepage": "",
    "private": true,
    "scripts": {
-      "start": "set NODE_ENV=development&&webpack serve",
-      "build:dev": "set NODE_ENV=development&&webpack",
-      "build:prod": "set NODE_ENV=production&&webpack",
+      "start": "cross-env NODE_ENV=development webpack serve",
+      "build:dev": "cross-env NODE_ENV=development webpack",
+      "build:prod": "cross-env NODE_ENV=production webpack",
       "test:check": "prettier --check src/**/* && eslint && stylelint src/**/*.scss",
       "test:fix": "prettier --write . && eslint --fix && stylelint src/**/*.scss --fix"
    },
    "devDependencies": {
+      "cross-env": "^7.0.3",
+
       "webpack": "^5.74.0",
       "webpack-cli": "^4.10.0",
       "webpack-dev-server": "^4.11.0",
