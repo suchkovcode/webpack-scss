@@ -32,8 +32,8 @@ module.exports = {
    },
    performance: {
       hints: false,
-      maxAssetSize: 100000,
-      maxEntrypointSize: 200000,
+      maxAssetSize: 512000,
+      maxEntrypointSize: 512000,
    },
    devServer: {
       static: {
