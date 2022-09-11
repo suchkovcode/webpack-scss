@@ -60,6 +60,9 @@ module.exports = {
          },
       },
    },
+   externals: {
+      jquery: "jQuery",
+   },
    plugins: [
       new HtmlWebpackPlugin({
          filename: "index.html",
