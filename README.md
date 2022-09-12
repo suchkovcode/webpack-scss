@@ -78,6 +78,57 @@
 `npm run test:fix` - запускает исправление исходного кода на ошибки через Prettier, ESlin и Stylelint для в папке **src**
 
 
+
+## Подключенные плагины
+
+> Используется последнии версии плагинов
+
+```
+cross-env                                     # Кроссплатформенно установливает переменные среды
+
+webpack                                       # Ядро вэбпака
+webpack-cli                                   # Оболочка для терминала
+webpack-dev-server                            # Вэбсервер
+
+babel-loader                                  # Babel лоадер
+css-loader                                    # css лоадер
+sass-loader                                   # sass лоадер
+style-loader                                  # style лоадер
+html-loader                                   # html лоадер 
+postcss-loader                                # postcss лоадер
+
+html-webpack-plugin                           # 
+mini-css-extract-plugin                       # 
+image-webpack-loader                          # 
+imagemin-webp-webpack-plugin                  # 
+favicons-webpack-plugin                       # 
+webpack-bundle-analyzer                       # 
+duplicate-package-checker-webpack-plugin      # 
+
+sass                                          # 
+prettier                                      # 
+favicons                                      # 
+
+postcss                                       # 
+postcss-sort-media-queries                    # 
+postcss-mq-keyframes                          # 
+autoprefixer                                  # 
+
+@babel/core                                   # 
+@babel/cli                                    # 
+@babel/preset-env                             # 
+
+stylelint                                     # 
+stylelint-config-prettier-scss                # 
+stylelint-config-standard-scss                # 
+stylelint-order                               #
+
+eslint                                        # 
+eslint-plugin-import                          # 
+eslint-plugin-prettier                        # 
+eslint-config-prettier                        # 
+```
+
 ## Изображения
 
 Изображения в данном сборке автоматически конвертируются в веб-формат webp.
