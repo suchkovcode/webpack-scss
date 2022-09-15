@@ -77,7 +77,7 @@ module.exports = {
          linkType: "text/css",
       }),
       new ImageminWebpWebpackPlugin( {
-         config: [{ 
+         config: [{
             test: /\.(png|jpe?g)$/i,
             options: {
                quality: 75
@@ -93,7 +93,9 @@ module.exports = {
          logo: "./src/assets/img/svg/favicon.svg",
          cache: true,
          mode: "auto",
+         publicPath: "./static",
          outputPath: "./static/",
+         prefix: "",
          inject: true,
          favicons: {
             appName: "«Webpack-app",
