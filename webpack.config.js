@@ -66,7 +66,7 @@ module.exports = {
    plugins: [
       new HtmlWebpackPlugin({
          filename: "index.html",
-         template: path.resolve(__dirname, "./src/index.html"),
+         template: path.resolve(__dirname, "./src/layouts/index.html"),
          inject: "body",
          scriptLoading: "blocking",
          minify: isDev ? false : true,
@@ -93,7 +93,7 @@ module.exports = {
          logo: "./src/assets/img/svg/favicon.svg",
          cache: true,
          mode: "auto",
-         outputPath: "./assets/img/icon/",
+         outputPath: "./static/",
          inject: true,
          favicons: {
             appName: "«Webpack-app",
@@ -105,7 +105,7 @@ module.exports = {
             background: "#fff",
             theme_color: "#fff",
             lang: "en-US",
-            scope: "/",
+            start_url: "/",
             icons: {
                android: true,
                appleIcon: true,
