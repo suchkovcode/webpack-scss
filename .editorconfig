@@ -16,3 +16,10 @@ trim_trailing_whitespace = false
 indent_style = ignore
 trim_trailing_whitespace = false
 insert_final_newline = ignore
+
+[node_modules/**.js]
+indent_style = ignore
+indent_size = ignore
+end_of_line = ignore
+trim_trailing_whitespace = ignore
+insert_final_newline = ignore
