@@ -2,3 +2,5 @@ dist/
 build/
 public/
 mode_modules/
+/.vscode
+/.git

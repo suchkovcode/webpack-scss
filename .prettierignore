@@ -1,12 +1,13 @@
 admin/
 build/
-
 public/
 video/
 img/
 fonts/
 node_modules/
 package-lock.json
+/.vscode
+webpack.config.js
 **/.git
 **/.svn
 **/.hg
