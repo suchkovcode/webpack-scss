@@ -3,10 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
-const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const isDev = process.env.NODE_ENV !== "production";
-
 
 module.exports = {
    target: isDev ? "web" : "browserslist",
@@ -38,6 +36,10 @@ module.exports = {
    devServer: {
       static: {
          directory: path.join(__dirname, "./dist"),
+      },
+      devMiddleware: {
+         serverSideRender: false,
+         writeToDisk: false,
       },
       server: "http",
       compress: false,
@@ -72,29 +74,22 @@ module.exports = {
          minify: isDev ? false : true,
          xhtml: true,
       }),
+      new HtmlWebpackPlugin({
+         filename: "pages/home.html",
+         template: path.resolve(__dirname, "./src/pages/home.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
       new MiniCssExtractPlugin({
          filename: "app.css",
          linkType: "text/css",
       }),
-      new ImageminWebpWebpackPlugin( {
-         config: [{
-            test: /\.(png|jpe?g)$/i,
-            options: {
-               quality: 75
-            }
-         }],
-         overrideExtension: true,
-         detailedLogs: false,
-         silent: false,
-         strict: true
-      }
-      ),
       new FaviconsWebpackPlugin({
          logo: "./src/assets/img/svg/favicon.svg",
          cache: true,
          mode: "auto",
-         publicPath: "./static",
-         outputPath: "./static/",
+         publicPath: "./assets/static",
+         outputPath: "./assets/static",
          prefix: "",
          inject: true,
          favicons: {
@@ -118,19 +113,20 @@ module.exports = {
             },
          },
       }),
-      new DuplicatePackageCheckerPlugin(),
       new BundleAnalyzerPlugin({
          analyzerMode: isDev ? "static" : "disabled",
          analyzerPort: 5500,
          openAnalyzer: false,
          analyzerHost: "127.0.0.1",
          logLevel: "info"
-      })
+      }),
+      new DuplicatePackageCheckerPlugin(),
    ],
    module: {
       rules: [
          {  // Start Babel
             test: /\.(js|jsx)$/,
+            include: path.resolve(__dirname, "./src"),
             exclude: /(node_modules|bower_components)/,
             use: {
                loader: "babel-loader",
@@ -142,11 +138,13 @@ module.exports = {
 
          {  // Start Html
             test: /\.html$/i,
+            include: path.resolve(__dirname, "./src"),
             loader: "html-loader",
          }, // End Html
 
          {  // Start Scss
             test: /\.(sa|sc|c)ss$/i,
+            include: path.resolve(__dirname, "./src"),
             use: [
                isDev ? "style-loader" : MiniCssExtractPlugin.loader,
                "css-loader",
@@ -155,9 +153,11 @@ module.exports = {
                   options: {
                      postcssOptions: {
                         plugins: [
-                           require("autoprefixer"),
-                           require("postcss-mq-keyframes"),
-                           require("postcss-sort-media-queries"),
+                           require("postcss-100vh-fix"),
+                           isDev ? undefined : require("autoprefixer"),
+                           isDev ? undefined : require("postcss-mq-keyframes"),
+                           isDev ? undefined : require("postcss-sort-media-queries"),
+                           isDev ? undefined : require("postcss-focus"),
                         ],
                      },
                   },
@@ -168,17 +168,16 @@ module.exports = {
 
          {  // Start Img
             test: /\.(png|jpe?g)$/i,
+            include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
-            use: isDev ? undefined : [
-               { loader: "image-webpack-loader"},
-            ],
             generator: {
-               filename: isDev ? "assets/img/webp/[contenthash][ext]" : "assets/img/webp/[name].webp",
+               filename: isDev ? "assets/img/png/[contenthash][ext]" : "assets/img/png/[name][ext]",
             },
          }, // End Img
 
          {  // Start gif
             test: /\.gif$/i,
+            include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             use: isDev ? undefined : {
                loader: "image-webpack-loader",
@@ -190,6 +189,7 @@ module.exports = {
 
          {  // Start svg
             test: /\.svg$/i,
+            include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             use: isDev ? undefined : {
                loader: "image-webpack-loader",
@@ -201,6 +201,7 @@ module.exports = {
 
          {  // Start Fonts
             test: /\.(eot|ttf|woff|woff2)$/i,
+            include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             generator: {
                filename: "assets/fonts/[name][ext]",
