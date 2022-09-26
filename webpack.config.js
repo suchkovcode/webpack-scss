@@ -8,16 +8,13 @@ const isDev = process.env.NODE_ENV !== "production";
 
 module.exports = {
    target: isDev ? "web" : "browserslist",
-   devtool: isDev ? "source-map" : undefined,
-   cache: {
-      type: "filesystem",
-   },
+   devtool: isDev ? "eval-cheap-source-map" : undefined,
    entry: {
       app: path.resolve(__dirname, "./src/app.js"),
    },
    output: {
       path: path.resolve(__dirname, "./dist"),
-      filename: isDev ? "[name].[contenthash].js" : "[name].js",
+      filename: isDev ? "[name].[contenthash].js" : "[name].min.js",
       clean: true,
    },
    resolve: {
@@ -28,10 +25,30 @@ module.exports = {
          Components: path.resolve(__dirname, "./src/components"),
       },
    },
+   cache: {
+      type: "filesystem",
+      cacheDirectory: path.resolve(__dirname, ".cache"),
+      idleTimeoutAfterLargeChanges: 3000,
+      maxAge: 172800000,
+      maxMemoryGenerations: isDev ? 5 : Infinity,
+      memoryCacheUnaffected: true,
+   },
+   optimization: {
+      splitChunks: {
+         cacheGroups: {
+            styles: {
+               name: "styles",
+               type: "css/mini-extract",
+               chunks: "all",
+               enforce: true,
+            },
+         },
+      },
+   },
    performance: {
       hints: false,
-      maxAssetSize: 512000,
-      maxEntrypointSize: 512000,
+      maxAssetSize: 100000,
+      maxEntrypointSize: 400000,
    },
    devServer: {
       static: {
@@ -50,18 +67,6 @@ module.exports = {
       hot: true,
       liveReload: false,
    },
-   optimization: {
-      splitChunks: {
-         cacheGroups: {
-            styles: {
-               name: "styles",
-               type: "css/mini-extract",
-               chunks: "all",
-               enforce: true,
-            },
-         },
-      },
-   },
    externals: {
       jquery: "jQuery",
    },
@@ -73,12 +78,6 @@ module.exports = {
          scriptLoading: "blocking",
          minify: isDev ? false : true,
          xhtml: true,
-      }),
-      new HtmlWebpackPlugin({
-         filename: "pages/home.html",
-         template: path.resolve(__dirname, "./src/pages/home.html"),
-         inject: false,
-         minify: isDev ? false : true,
       }),
       new MiniCssExtractPlugin({
          filename: "app.css",
@@ -128,7 +127,7 @@ module.exports = {
             test: /\.(js|jsx)$/,
             include: path.resolve(__dirname, "./src"),
             exclude: /(node_modules|bower_components)/,
-            use: {
+            use: isDev ? undefined : {
                loader: "babel-loader",
                options: {
                   presets: ["@babel/preset-env"]
@@ -138,12 +137,14 @@ module.exports = {
 
          {  // Start Html
             test: /\.html$/i,
+            exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             loader: "html-loader",
          }, // End Html
 
          {  // Start Scss
             test: /\.(sa|sc|c)ss$/i,
+            exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             use: [
                isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -168,6 +169,7 @@ module.exports = {
 
          {  // Start Img
             test: /\.(png|jpe?g)$/i,
+            exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             generator: {
@@ -177,6 +179,7 @@ module.exports = {
 
          {  // Start gif
             test: /\.gif$/i,
+            exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             use: isDev ? undefined : {
@@ -189,6 +192,7 @@ module.exports = {
 
          {  // Start svg
             test: /\.svg$/i,
+            exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             use: isDev ? undefined : {
@@ -201,6 +205,7 @@ module.exports = {
 
          {  // Start Fonts
             test: /\.(eot|ttf|woff|woff2)$/i,
+            exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             generator: {
