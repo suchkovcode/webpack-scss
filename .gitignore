@@ -1,5 +1,19 @@
-node_modules/
-package-lock.json
+## Folder
+admin/
 build/
-src/admin/
+dist/
+public/
+video/
+img/
+fonts/
+node_modules/
+
+## System files
 .vscode
+.cache
+.git
+.svn
+.hg
+
+## Config files
+package-lock.json

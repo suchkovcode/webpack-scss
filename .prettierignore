@@ -1,16 +1,20 @@
+## Folder
 admin/
 build/
+dist/
 public/
 video/
 img/
 fonts/
 node_modules/
-package-lock.json
-/.vscode
+
+## System files
+.vscode
+.cache
+.git
+.svn
+.hg
+
+## Config files
 webpack.config.js
-**/.git
-**/.svn
-**/.hg
-.gitignore
-.eslintignore
-.gitkeep
+package-lock.json

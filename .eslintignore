@@ -1,14 +1,23 @@
+## Folder
 admin/
 build/
 dist/
 public/
+video/
 img/
 fonts/
 node_modules/
-.gitignore
-.prettierignore
-.prettierrc.json
+
+## System files
 .vscode
+.cache
+.git
+.svn
+.hg
 .js.map
-.gitkeep
-vendor.js
+
+## Config files
+.stylelintrc.json
+.prettierrc.json
+webpack.config.js
+package-lock.json
