@@ -45,6 +45,8 @@
       "postcss-sort-media-queries": "^4.3.0",
       "postcss-mq-keyframes": "^0.3.0",
       "autoprefixer": "^10.4.8",
+      "postcss-100vh-fix": "^1.0.2",
+      "postcss-focus": "^5.0.1",
 
       "@babel/core": "^7.19.0",
       "@babel/cli": "^7.18.10",
