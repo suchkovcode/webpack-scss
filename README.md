@@ -91,26 +91,32 @@
 > Используется последнии версии плагинов
 
 ```
-cross-env                                     # Кроссплатформенно установливает переменные среды
+cross-env                                     # 
 
-webpack                                       # Ядро вэбпака
-webpack-cli                                   # Оболочка для терминала
-webpack-dev-server                            # Вэбсервер
+webpack                                       #  
+webpack-cli                                   #   
+webpack-dev-server                            # 
 
-babel-loader                                  # Babel лоадер
-css-loader                                    # css лоадер
-sass-loader                                   # sass лоадер
-style-loader                                  # style лоадер
-html-loader                                   # html лоадер 
-postcss-loader                                # postcss лоадер
+babel-loader                                  # 
+css-loader                                    # 
+sass-loader                                   # 
+style-loader                                  # 
+html-loader                                   #  
+postcss-loader                                # 
 
 html-webpack-plugin                           # 
 mini-css-extract-plugin                       # 
-image-webpack-loader                          # 
-imagemin-webp-webpack-plugin                  # 
 favicons-webpack-plugin                       # 
 webpack-bundle-analyzer                       # 
 duplicate-package-checker-webpack-plugin      # 
+image-minimizer-webpack-plugin                # 
+ 
+imagemin                                      #
+imagemin-gifsicle                             #
+imagemin-mozjpeg                              #
+imagemin-jpegtran                             #
+imagemin-pngquant                             #
+imagemin-svgo                                 #
 
 sass                                          # 
 prettier                                      # 
