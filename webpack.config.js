@@ -49,6 +49,7 @@ module.exports = {
          "...",
          new ImageMinimizerPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i,
+            exclude: /(node_modules|bower_components)/,
             minimizer: {
                implementation: isDev ? undefined : ImageMinimizerPlugin.imageminMinify,
                options: {
