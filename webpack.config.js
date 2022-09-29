@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -44,6 +45,22 @@ module.exports = {
             },
          },
       },
+      minimizer: [
+         "...",
+         new ImageMinimizerPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            minimizer: {
+               implementation: isDev ? undefined : ImageMinimizerPlugin.imageminMinify,
+               options: {
+                  plugins: [
+                  ["gifsicle", { interlaced: true, optimizationLevel: 2}],
+                  ["mozjpeg", { quality: 50, progressive: true }],
+                  ["pngquant", { quality: [0.3, 0.5], strip: true }],
+               ],
+             },
+           },
+         }),
+      ],
    },
    performance: {
       hints: false,
@@ -80,7 +97,7 @@ module.exports = {
          xhtml: false,
       }),
       new MiniCssExtractPlugin({
-         filename: "app.css",
+         filename: isDev ? "app.css" : "app.min.css",
          linkType: "text/css",
       }),
       new FaviconsWebpackPlugin({
@@ -182,9 +199,6 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
-            use: isDev ? undefined : {
-               loader: "image-webpack-loader",
-            },
             generator: {
                filename: isDev ? "assets/gif/[contenthash][ext]" : "assets/gif/[name][ext]",
             },
@@ -195,9 +209,6 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
-            use: isDev ? undefined : {
-               loader: "image-webpack-loader",
-            },
             generator: {
                filename: isDev ? "assets/img/svg/[contenthash][ext]" : "assets/img/svg/[name][ext]",
             },
