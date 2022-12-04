@@ -134,6 +134,7 @@ postcss-mq-keyframes                          #
 postcss-100vh-fix                             #
 postcss-focus                                 #
 autoprefixer                                  # 
+@fullhuman/postcss-purgecss                   # 
 
 @babel/core                                   # 
 @babel/cli                                    # 
