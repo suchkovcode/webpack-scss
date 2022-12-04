@@ -174,25 +174,7 @@ module.exports = {
             test: /\.(sa|sc|c)ss$/i,
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
-            use: [
-               isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-               "css-loader",
-               {
-                  loader: "postcss-loader",
-                  options: {
-                     postcssOptions: {
-                        plugins: [
-                           require("postcss-100vh-fix"),
-                           isDev ? undefined : require("autoprefixer"),
-                           isDev ? undefined : require("postcss-mq-keyframes"),
-                           isDev ? undefined : require("postcss-sort-media-queries"),
-                           isDev ? undefined : require("postcss-focus"),
-                        ],
-                     },
-                  },
-               },
-               "sass-loader",
-            ],
+            use: [ isDev ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
          }, // End Scss
 
          {  // Start Img
