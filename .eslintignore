@@ -15,6 +15,7 @@ node_modules/
 .svn
 .hg
 .js.map
+.idea
 
 ## Config files
 .stylelintrc.json
