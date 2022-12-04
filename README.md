@@ -1,4 +1,4 @@
-# Webpack - моя сборка
+# Webpack (SCSS) - моя сборка
 
 > Используется Webpack 5.74.0
 
