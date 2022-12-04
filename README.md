@@ -115,6 +115,7 @@ favicons-webpack-plugin                       #
 webpack-bundle-analyzer                       # 
 duplicate-package-checker-webpack-plugin      # 
 image-minimizer-webpack-plugin                # 
+copy-webpack-plugin                           # 
  
 imagemin                                      #
 imagemin-gifsicle                             #
