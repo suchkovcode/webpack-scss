@@ -1,0 +1,33 @@
+{
+   "source": {
+      "include": ["src", "package.json"],
+      "exclude": [],
+      "includePattern": ".+\\.js(doc|x)?$",
+      "excludePattern": "(node_modules|docs)(^|\\/|\\\\)_"
+   },
+   "plugins": ["plugins/markdown", "plugins/summarize"],
+   "templates": {
+      "cleverLinks": true,
+      "monospaceLinks": true
+   },
+   "opts": {
+      "encoding": "utf8",
+      "destination": "doc/",
+      "recurse": true,
+      "verbose": true,
+      "template": "./node_modules/clean-jsdoc-theme",
+      "theme_opts": {
+         "default_theme": "light"
+      }
+   },
+   "tags": {
+      "allowUnknownTags": true,
+      "dictionaries": ["jsdoc", "closure"]
+    },
+   "recurseDepth": 10,
+   "sourceType": "module",
+   "markdown": {
+      "hardwrap": false,
+      "idInHeadings": true
+   }
+}
