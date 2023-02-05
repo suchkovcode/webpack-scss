@@ -56,6 +56,7 @@
 ├── .stylelintignore               # Файл игнора стайлинта
 ├── .prettierrc.json               # Файл конфигурации форматера кода prettier
 ├── .prettierignore                # Файл игнорирования директорий и файлов для prettier
+├── jsdoc.json                     # Файл конфигурации для генерации документации JS
 ├── package.json                   # Основные зависимости
 └── src                            # Исходная папка проекта
       ├───assets                   # Папка исзожных статичекий файлов
@@ -97,6 +98,8 @@
 cross-env                                     # 
 husky                                         # 
 lint-staged                                   # 
+jsdoc                                         # 
+clean-jsdoc-theme                             # 
 
 webpack                                       #  
 webpack-cli                                   #   
