@@ -95,7 +95,6 @@ module.exports = {
          template: path.resolve(__dirname, "./src/layouts/index.html"),
          inject: "body",
          scriptLoading: "blocking",
-         minify: isDev ? false : true,
          xhtml: false,
       }),
       new MiniCssExtractPlugin({
