@@ -1,16 +1,102 @@
-## Folder
-admin/
-build/
+#Build generated and folder
 dist/
+build/
+admin/
 public/
 node_modules/
+bower_components/
 
-## System files
-.vscode
+# Config files
+package-lock.json
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.DS_Store
 .cache
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 .svn
 .hg
-.idea
 
-## Config files
-package-lock.json
+# Optional npm cache directory
+.npm
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file(s)
+.env
+.env.*
+
+# Serverless generated files
+.serverless/
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Vim ###
+*.sw[a-p]
+
+### WebStorm/IntelliJ ###
+/.idea
+modules.xml
+*.ipr
+*.iml
+
+### System Files ###
+*.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
