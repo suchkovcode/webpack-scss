@@ -58,7 +58,7 @@
       "favicons": "^7.1.5",
 
       "postcss": "^8.4.35",
-      "postcss-sort-media-queries": "^4.3.0",
+      "postcss-sort-media-queries": "^5.2.0",
       "postcss-mq-keyframes": "^0.3.0",
       "autoprefixer": "^10.4.13",
       "postcss-100vh-fix": "^1.0.2",
