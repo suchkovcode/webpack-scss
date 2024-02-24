@@ -62,7 +62,7 @@
       "postcss-mq-keyframes": "^0.3.0",
       "autoprefixer": "^10.4.17",
       "postcss-100vh-fix": "^1.0.2",
-      "postcss-focus": "^6.0.0",
+      "postcss-focus": "^7.0.0",
       "@fullhuman/postcss-purgecss": "^5.0.0",
 
       "@babel/core": "^7.21.0",
