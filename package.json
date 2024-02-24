@@ -55,7 +55,7 @@
 
       "sass": "^1.71.1",
       "prettier": "^3.2.5",
-      "favicons": "^7.1.0",
+      "favicons": "^7.1.5",
 
       "postcss": "^8.4.21",
       "postcss-sort-media-queries": "^4.3.0",
