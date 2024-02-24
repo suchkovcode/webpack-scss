@@ -5,7 +5,7 @@
 ## Возможности
 
 -  Компонентый подход к работе: структура файлов реализована компонентно
--  Использование Css-препроцессора Sсss
+-  Использование CSS-препроцессора SCSS
 -  Оптимизиация итоговых HTML и CSS файлов
 -  husky prehooks и lint-staged
 -  Автоматическое форматирования стиля кода по заданым настройкам
@@ -21,7 +21,7 @@
 ## Требования
 Для работы сборки вам понадобится скачать и установить:
 
-- [Node.js](https://nodejs.org/en/) (требуемая версия Node >= 14.0)
+- [Node.js](https://nodejs.org/en/) (требуемая версия Node >= 18.0)
 - [Webpack 5](https://webpack.js.org/)
 - [Git](https://git-scm.com/downloads) Также установите систему контроля версии. Для работы сборки Git не обязателен, но для удобства установки и дальнейшей разработки лучше все же установить.
 
@@ -188,4 +188,4 @@ eslint-config-prettier                        #
 
 [MIT](./LICENSE) 
 
-Copyright (c) 2022, [Nikita Suchkov](https://github.com/suchkovcode/)
+Copyright (c) 2024, [Nikita Suchkov](https://github.com/suchkovcode/)
